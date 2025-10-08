@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tap to get my contact — then share yours</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0}
+    body{display:flex;min-height:100vh;align-items:center;justify-content:center;padding:18px;background:#f7fafc}
+    .card{max-width:720px;width:100%;background:white;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,0.08);padding:20px;text-align:center}
+    h1{font-size:20px;margin:0 0 10px}
+    p{margin:0 0 14px;color:#374151}
+    .row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+    button,a.btn{appearance:none;border:0;padding:10px 14px;border-radius:10px;background:#111827;color:white;text-decoration:none;font-weight:600}
+    .muted{background:#eef2ff;color:#111827;font-weight:600}
+    img.logo{max-width:200px;margin-bottom:20px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Logo -->
+    <img src="https://chaddtdg.github.io/DeanthomasCard/Dean Thomas Design Group Logo - Black Lettering.jpg" alt="Dean Thomas Design Group Logo" class="logo">
+
+    <h1>Get my contact — then share yours</h1>
+    <p class="small">Tap the NFC tag to open this page. Use one of the options below to share your contact info.</p>
+
+    <div style="margin:14px 0" class="row">
+      <a id="downloadVcf" class="btn" download="dean-thomas.vcf" href="#">Download my contact (.vcf)</a>
+    </div>
+
+    <div style="margin-top:10px" class="row">
+      <a id="smsBtn" class="btn" href="#">Share via SMS</a>
+      <a id="airdropBtn" class="btn muted" href="#">Share via AirDrop</a>
+    </div>
+
+    <p class="small" style="margin-top:10px">Privacy note: SMS will be sent manually by the user. AirDrop allows iPhone users to share their contact via their Contacts app.</p>
+  </div>
+
+<script>
+const CONFIG = {
+  fullName: 'Dean Thomas',
+  org: 'Dean Thomas Design Group',
+  title: 'President',
+  phone: '+14033691802',
+  email: 'dean@deanthomas.ca',
+  receiverPhoneNumber: '+14033691802'
+};
+
+// vCard creation
+function makeVCard(){
+  return `BEGIN:VCARD\nVERSION:3.0\nFN:${CONFIG.fullName}\nORG:${CONFIG.org}\nTITLE:${CONFIG.title}\nTEL;TYPE=WORK,VOICE:${CONFIG.phone}\nEMAIL:${CONFIG.email}\nADR:;;1109 Olympic Way SE;Calgary;AB;T2G 1B9;Canada\nEND:VCARD\n`;
+}
+const downloadAnchor = document.getElementById('downloadVcf');
+function updateVCardLinks(){
+  const v = makeVCard();
+  const dataUri = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(v);
+  downloadAnchor.href = dataUri;
+}
+updateVCardLinks();
+
+// SMS prefill
+const smsBtn = document.getElementById('smsBtn');
+smsBtn.href = `sms:${CONFIG.receiverPhoneNumber}?body=${encodeURIComponent('Hi Dean, I would like to share my contact info: Name, Email, Phone')}`;
+
+// AirDrop instructions (cannot trigger AirDrop automatically, provide guidance)
+const airdropBtn = document.getElementById('airdropBtn');
+airdropBtn.href = '#';
+airdropBtn.addEventListener('click', ()=>{
+  alert('To share via AirDrop: open your Contacts app, select your contact, tap Share, and choose AirDrop to send it to Dean Thomas.');
+});
+</script>
+</body>
+</html>
