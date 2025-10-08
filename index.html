@@ -13,6 +13,7 @@
       justify-content: center;
       height: 100vh;
       overflow: hidden;
+      position: relative;
     }
 
     video {
@@ -20,6 +21,21 @@
       height: 100%;
       object-fit: contain;
       background-color: #000;
+      z-index: 1;
+    }
+
+    /* Overlay for fade to white */
+    .fade-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      opacity: 0;
+      z-index: 2;
+      pointer-events: none;
+      transition: opacity 1s ease;
     }
   </style>
 </head>
@@ -29,18 +45,28 @@
     Your browser does not support the video tag.
   </video>
 
+  <div class="fade-overlay" id="fadeOverlay"></div>
+
   <script>
     const video = document.getElementById('introVideo');
+    const overlay = document.getElementById('fadeOverlay');
+    const redirectUrl = "https://chaddtdg.github.io/DeanthomasCard/nfc_vcard_and_collect_form2.html";
 
-    // Redirect when the video finishes playing
+    // When video ends, fade to white and then redirect
     video.addEventListener('ended', () => {
-      window.location.href = "https://chaddtdg.github.io/DeanthomasCard/nfc_vcard_and_collect_form2.html";
+      overlay.style.opacity = 1;
+      setTimeout(() => {
+        window.location.href = redirectUrl;
+      }, 1000); // matches the 1s transition for fade
     });
 
-    // Fallback in case the 'ended' event doesn’t fire (some iPhones)
+    // Fallback in case 'ended' event doesn't fire
     setTimeout(() => {
-      window.location.href = "https://chaddtdg.github.io/DeanthomasCard/nfc_vcard_and_collect_form2.html";
-    }, 6000); // adjust to your animation’s exact duration (ms)
+      overlay.style.opacity = 1;
+      setTimeout(() => {
+        window.location.href = redirectUrl;
+      }, 1000);
+    }, 6000); // adjust to video duration
   </script>
 </body>
 </html>
