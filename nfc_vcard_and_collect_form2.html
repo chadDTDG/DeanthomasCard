@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dean Thomas Design Group - Contact</title>
+  <!-- Import Roboto font to match main site -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f8f8;
+      color: #111111;
+      margin: 0;
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+    .card {
+      max-width: 720px;
+      width: 100%;
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      padding: 30px;
+      text-align: center;
+    }
+    img.logo {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      margin: 10px 0 14px;
+      font-weight: 700;
+    }
+    p {
+      margin: 0 0 14px;
+      font-size: 16px;
+      color: #333333;
+    }
+    .row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 14px;
+    }
+    a.btn {
+      background-color: #000000;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    a.btn:hover {
+      background-color: #333333;
+    }
+    .small {
+      font-size: 14px;
+      color: #555555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Logo -->
+    <img src="https://chaddtdg.github.io/DeanthomasCard/Dean Thomas Design Group Logo - Black Lettering.jpg" alt="Dean Thomas Design Group Logo" class="logo">
+
+    <h1>Get my contact — then share yours</h1>
+    <p class="small">Tap the NFC tag to open this page. Use the option below to share your contact info.</p>
+
+    <div class="row">
+      <a id="downloadVcf" class="btn" download="dean-thomas.vcf" href="#">Download my contact (.vcf)</a>
+    </div>
+
+    <div class="row">
+      <a id="smsBtn" class="btn" href="#">Share my contact information with Dean via SMS</a>
+    </div>
+
+    <p class="small">Privacy note: SMS will be sent manually by the user.</p>
+  </div>
+
+<script>
+const CONFIG = {
+  fullName: 'Dean Thomas',
+  org: 'Dean Thomas Design Group',
+  title: 'President',
+  phone: '+14033691802',
+  email: 'dean@deanthomas.ca',
+  receiverPhoneNumber: '+14033691802'
+};
+
+// vCard creation
+function makeVCard(){
+  return `BEGIN:VCARD\nVERSION:3.0\nFN:${CONFIG.fullName}\nORG:${CONFIG.org}\nTITLE:${CONFIG.title}\nTEL;TYPE=WORK,VOICE:${CONFIG.phone}\nEMAIL:${CONFIG.email}\nADR:;;1109 Olympic Way SE;Calgary;AB;T2G 1B9;Canada\nEND:VCARD\n`;
+}
+const downloadAnchor = document.getElementById('downloadVcf');
+function updateVCardLinks(){
+  const v = makeVCard();
+  const dataUri = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(v);
+  downloadAnchor.href = dataUri;
+}
+updateVCardLinks();
+
+// SMS prefill
+const smsBtn = document.getElementById('smsBtn');
+smsBtn.href = `sms:${CONFIG.receiverPhoneNumber}?body=${encodeURIComponent('Hi Dean, I would like to share my contact info: Name, Email, Phone')}`;
+</script>
+</body>
+</html>
