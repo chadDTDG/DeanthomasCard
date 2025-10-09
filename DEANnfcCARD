@@ -33,7 +33,7 @@
     }
 
     img.logo {
-      width: 360px; /* logo size */
+      width: 360px;
       margin-top: 60px;
       margin-bottom: 40px;
     }
@@ -130,4 +130,32 @@
   <p class="fade-in" style="animation-delay: 0.4s;">Tap below to save my contact or share yours with me.</p>
 
   <!-- Download vCard -->
-  <a class="button fade-in" href="DeanThomasDesignGroup.vcf" download style="anima
+  <a class="button fade-in" href="https://chaddtdg.github.io/DeanthomasCard/Deansvcf.vcf" download style="animation-delay: 0.6s;">
+    Download My Contact
+  </a>
+
+  <!-- Share via SMS -->
+  <a 
+    class="button fade-in" 
+    href="sms:+14033691802?&body=Hi%20Dean%2C%20here%27s%20my%20contact%20information..."
+    style="animation-delay: 0.8s;"
+  >
+    Share my contact information with Dean via SMS
+  </a>
+
+  <!-- Instagram -->
+  <a 
+    href="https://www.instagram.com/deanthomasdesigngroup" 
+    target="_blank" 
+    class="button instagram-button fade-in"
+    style="animation-delay: 1s;"
+  >
+    Follow us on Instagram
+  </a>
+
+  <footer class="fade-in" style="animation-delay: 1.2s;">
+    © 2025 Dean Thomas Design Group. All rights reserved.
+  </footer>
+
+</body>
+</html>
