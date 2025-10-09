@@ -1,116 +1,163 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dean Thomas Design Group - Contact</title>
-  <!-- Import Roboto font to match main site -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dean Thomas Design Group | Contact</title>
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f8f8f8;
-      color: #111111;
+      font-family: "Roboto", sans-serif;
+      background-color: #f5f5f5;
+      color: #1a1a1a;
       margin: 0;
+      padding: 0;
       display: flex;
-      min-height: 100vh;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 18px;
-    }
-    .card {
-      max-width: 720px;
-      width: 100%;
-      background-color: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      padding: 30px;
+      justify-content: flex-start;
+      min-height: 100vh;
       text-align: center;
     }
-    img.logo {
-      max-width: 200px;
-      margin-bottom: 20px;
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
     }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    img.logo {
+      width: 300px; /* increased size */
+      margin-top: 60px;
+      margin-bottom: 40px;
+    }
+
     h1 {
       font-size: 24px;
-      margin: 10px 0 14px;
-      font-weight: 700;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #111;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
+
     p {
-      margin: 0 0 14px;
       font-size: 16px;
-      color: #333333;
+      margin-bottom: 30px;
+      max-width: 90%;
+      color: #444;
     }
-    .row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 14px;
-    }
-    a.btn {
-      background-color: #000000;
-      color: #ffffff;
-      border-radius: 8px;
-      padding: 12px 24px;
-      font-weight: 500;
+
+    .button {
+      display: inline-block;
+      background-color: #2f2f2f;
+      color: #fff;
       text-decoration: none;
-      transition: background-color 0.3s;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      margin: 10px 0;
+      min-width: 260px;
     }
-    a.btn:hover {
-      background-color: #333333;
+
+    .button:hover {
+      background-color: #4d4d4d;
+      transform: translateY(-2px);
     }
-    .small {
+
+    .instagram-button {
+      background-color: #555;
+      transition: all 0.3s ease, filter 0.3s ease;
+    }
+
+    .instagram-button:hover {
+      background-color: #555;
+      filter: brightness(1.15);
+      transform: translateY(-2px);
+    }
+
+    footer {
       font-size: 14px;
-      color: #555555;
-      margin-top: 10px;
+      margin-top: auto;
+      padding: 30px 0;
+      color: #666;
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #111;
+        color: #eee;
+      }
+      .button {
+        background-color: #e0e0e0;
+        color: #111;
+      }
+      .button:hover {
+        background-color: #cfcfcf;
+      }
+      .instagram-button {
+        background-color: #b3b3b3;
+        color: #111;
+      }
+      .instagram-button:hover {
+        filter: brightness(1.2);
+      }
+      footer {
+        color: #999;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <!-- Logo -->
-    <img src="https://chaddtdg.github.io/DeanthomasCard/Dean Thomas Design Group Logo - Black Lettering.jpg" alt="Dean Thomas Design Group Logo" class="logo">
 
-    <h1>Get my contact — then share yours</h1>
-    <p class="small">Tap the NFC tag to open this page. Use the option below to share your contact info.</p>
+  <!-- Logo -->
+  <img 
+    src="https://chaddtdg.github.io/DeanthomasCard/Dean%20Thomas%20Design%20Group%20Logo%20-%20Black%20Lettering.jpg" 
+    alt="Dean Thomas Design Group Logo" 
+    class="logo fade-in"
+  />
 
-    <div class="row">
-      <a id="downloadVcf" class="btn" download="dean-thomas.vcf" href="#">Download my contact (.vcf)</a>
-    </div>
+  <!-- Heading -->
+  <h1 class="fade-in" style="animation-delay: 0.2s;">Dean Thomas Design Group</h1>
+  <p class="fade-in" style="animation-delay: 0.4s;">Tap below to save my contact or share yours with me.</p>
 
-    <div class="row">
-      <a id="smsBtn" class="btn" href="#">Share my contact information with Dean via SMS</a>
-    </div>
+  <!-- Download vCard -->
+  <a class="button fade-in" href="DeanThomasDesignGroup.vcf" download style="animation-delay: 0.6s;">
+    Download My Contact
+  </a>
 
-    <p class="small">Privacy note: SMS will be sent manually by the user.</p>
-  </div>
+  <!-- Share via SMS -->
+  <a 
+    class="button fade-in" 
+    href="sms:+14033691802?&body=Hi%20Dean%2C%20here%27s%20my%20contact%20information..."
+    style="animation-delay: 0.8s;"
+  >
+    Share my contact information with Dean via SMS
+  </a>
 
-<script>
-const CONFIG = {
-  fullName: 'Dean Thomas',
-  org: 'Dean Thomas Design Group',
-  title: 'President',
-  phone: '+14033691802',
-  email: 'dean@deanthomas.ca',
-  receiverPhoneNumber: '+14033691802'
-};
+  <!-- Instagram -->
+  <a 
+    href="https://www.instagram.com/deanthomasdesigngroup" 
+    target="_blank" 
+    class="button instagram-button fade-in"
+    style="animation-delay: 1s;"
+  >
+    Follow us on Instagram
+  </a>
 
-// vCard creation
-function makeVCard(){
-  return `BEGIN:VCARD\nVERSION:3.0\nFN:${CONFIG.fullName}\nORG:${CONFIG.org}\nTITLE:${CONFIG.title}\nTEL;TYPE=WORK,VOICE:${CONFIG.phone}\nEMAIL:${CONFIG.email}\nADR:;;1109 Olympic Way SE;Calgary;AB;T2G 1B9;Canada\nEND:VCARD\n`;
-}
-const downloadAnchor = document.getElementById('downloadVcf');
-function updateVCardLinks(){
-  const v = makeVCard();
-  const dataUri = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(v);
-  downloadAnchor.href = dataUri;
-}
-updateVCardLinks();
+  <footer class="fade-in" style="animation-delay: 1.2s;">
+    © 2025 Dean Thomas Design Group. All rights reserved.
+  </footer>
 
-// SMS prefill
-const smsBtn = document.getElementById('smsBtn');
-smsBtn.href = `sms:${CONFIG.receiverPhoneNumber}?body=${encodeURIComponent('Hi Dean, I would like to share my contact info: Name, Email, Phone')}`;
-</script>
 </body>
 </html>
