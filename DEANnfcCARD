@@ -19,7 +19,6 @@
       text-align: center;
     }
 
-    /* Fade-in animation */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -34,7 +33,7 @@
     }
 
     img.logo {
-      width: 300px; /* increased size */
+      width: 360px; /* logo size */
       margin-top: 60px;
       margin-bottom: 40px;
     }
@@ -92,7 +91,6 @@
       color: #666;
     }
 
-    /* Dark mode */
     @media (prefers-color-scheme: dark) {
       body {
         background-color: #111;
@@ -122,7 +120,7 @@
 
   <!-- Logo -->
   <img 
-    src="https://chaddtdg.github.io/DeanthomasCard/Dean%20Thomas%20Design%20Group%20Logo%20-%20Black%20Lettering.jpg" 
+    src="https://chaddtdg.github.io/DeanthomasCard/DTDGLOGOWHITE.png" 
     alt="Dean Thomas Design Group Logo" 
     class="logo fade-in"
   />
@@ -132,32 +130,4 @@
   <p class="fade-in" style="animation-delay: 0.4s;">Tap below to save my contact or share yours with me.</p>
 
   <!-- Download vCard -->
-  <a class="button fade-in" href="DeanThomasDesignGroup.vcf" download style="animation-delay: 0.6s;">
-    Download My Contact
-  </a>
-
-  <!-- Share via SMS -->
-  <a 
-    class="button fade-in" 
-    href="sms:+14033691802?&body=Hi%20Dean%2C%20here%27s%20my%20contact%20information..."
-    style="animation-delay: 0.8s;"
-  >
-    Share my contact information with Dean via SMS
-  </a>
-
-  <!-- Instagram -->
-  <a 
-    href="https://www.instagram.com/deanthomasdesigngroup" 
-    target="_blank" 
-    class="button instagram-button fade-in"
-    style="animation-delay: 1s;"
-  >
-    Follow us on Instagram
-  </a>
-
-  <footer class="fade-in" style="animation-delay: 1.2s;">
-    © 2025 Dean Thomas Design Group. All rights reserved.
-  </footer>
-
-</body>
-</html>
+  <a class="button fade-in" href="DeanThomasDesignGroup.vcf" download style="anima
