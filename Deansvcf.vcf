@@ -1,10 +1,13 @@
 BEGIN:VCARD
 VERSION:3.0
+N:Thomas;Dean;;;
 FN:Dean Thomas
 ORG:Dean Thomas Design Group
 TITLE:President
-TEL;TYPE=CELL:403-369-1802
+TEL;TYPE=CELL:+14033691802
 ADR;TYPE=WORK:;;1109 Olympic Way SE;Calgary;AB;T2G 1B9;Canada
 EMAIL:dean@deanthomas.ca
-URL:www.deanthomas.ca
+URL:https://www.deanthomas.ca
 END:VCARD
+
+
